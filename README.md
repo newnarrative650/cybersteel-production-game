@@ -32,6 +32,16 @@ MVP игры с тремя производственными маршрутам
 
 `app/game.ts` — чистая модель игры. `app/page.tsx` — интерфейс, указатель/клавиатура и модальное окно. `app/globals.css` и `app/game.css` — стили, включая мобильные размеры и уменьшение движения.
 
+## GitHub Pages
+
+Игра: https://newnarrative650.github.io/cybersteel-production-game/
+
+`npm run build:pages` собирает самостоятельный статический сайт в `dist-pages`. `npm run preview:pages` запускает локальный просмотр; открой путь `/cybersteel-production-game/` на указанном сервере.
+
+Workflow `.github/workflows/pages.yml` проверяет и публикует изменения после push в `main`; его также можно запустить вручную в GitHub Actions. В настройках репозитория Pages должен быть выбран источник GitHub Actions.
+
+`static/main.tsx` использует тот же интерфейс и модель игры. `vite.pages.config.ts` задаёт префикс путей к ресурсам и адрес для превью ссылок. Для другого репозитория или домена доступны переменные сборки `PAGES_BASE_PATH` и `PAGES_SITE_URL`; workflow получает их из настроек Pages автоматически. Исходная сборка Sites (`npm run build`) и `.openai/hosting.json` сохранены.
+
 ## Медиа
 
 `public/tubes.webp` — фотография CYBERSTEEL, повторно использована из существующего проекта без его изменения. Источник: https://cybersteel.com/upload/resize_cache/iblock/48e/42gr3kpeg4188hxx1gmkkv1rl6gfuov9/1230_800_1/TSA7225.jpg

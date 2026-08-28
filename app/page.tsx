@@ -4,6 +4,7 @@
 import { useEffect, useReducer, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { tubes, technologyText, type Tube, type Step } from "./production";
 import { gameReducer, initialGame, shuffleSteps } from "./game";
+import { publicAsset } from "./assets";
 
 type Modal = { kind: "technology"; step: Step } | { kind: "rules" } | null;
 type Drag = { id: string; pointerId: number; startX: number; startY: number; to: number | null; active: boolean };
@@ -111,7 +112,7 @@ export default function Home() {
           <p className="intro-description">У каждой трубы — свой путь.<br />Выбери производство и расставь его этапы<br className="desktop-break" /> в правильном порядке.</p>
           <div className="intro-meta"><span>3 типа труб</span><span>11 этапов</span><span>Подсказки на карточках</span></div>
         </div>
-        <div className="hero-visual"><img src="/tubes.webp" alt="Торцы бесшовных стальных труб CYBERSTEEL" width={1230} height={800} fetchPriority="high" /><span className="visual-cross">+</span><div className="visual-caption"><span>CYBERSTEEL / ПРОИЗВОДСТВО</span><span>БЕСШОВНАЯ ТОЧНОСТЬ</span></div></div>
+        <div className="hero-visual"><img src={publicAsset("tubes.webp")} alt="Торцы бесшовных стальных труб CYBERSTEEL" width={1230} height={800} fetchPriority="high" /><span className="visual-cross">+</span><div className="visual-caption"><span>CYBERSTEEL / ПРОИЗВОДСТВО</span><span>БЕСШОВНАЯ ТОЧНОСТЬ</span></div></div>
       </section>
       <section className="selection-section" aria-labelledby="selection-title">
         <div className="section-heading"><h2 id="selection-title">Какую трубу соберём?</h2><span>ВЫБЕРИ ТЕХНОЛОГИЧЕСКИЙ МАРШРУТ ↓</span></div>

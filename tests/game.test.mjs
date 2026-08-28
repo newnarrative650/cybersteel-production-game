@@ -2,6 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { tubes, technologyText } from '../app/production.ts';
 import { evaluateOrder, gameReducer, initialGame, moveCard, sameOperations, shuffleSteps, swapCards, validInventory } from '../app/game.ts';
+import { publicAsset } from '../app/assets.ts';
+
+test('public assets work at the Sites root and under a GitHub Pages repository', () => {
+  assert.equal(publicAsset('tubes.webp'), '/tubes.webp');
+  assert.equal(publicAsset('tubes.webp', '/cybersteel-production-game/'), '/cybersteel-production-game/tubes.webp');
+  assert.equal(publicAsset('/og.png', '/cybersteel-production-game'), '/cybersteel-production-game/og.png');
+  assert.equal(publicAsset('tubes.webp', ''), '/tubes.webp');
+});
 
 function seeded(seed) { let value = seed; return () => ((value = (value * 1664525 + 1013904223) >>> 0) / 4294967296); }
 
