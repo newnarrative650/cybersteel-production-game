@@ -42,6 +42,12 @@ Workflow `.github/workflows/pages.yml` проверяет и публикует 
 
 `static/main.tsx` использует тот же интерфейс и модель игры. `vite.pages.config.ts` задаёт префикс путей к ресурсам и адрес для превью ссылок. Для другого репозитория или домена доступны переменные сборки `PAGES_BASE_PATH` и `PAGES_SITE_URL`; workflow получает их из настроек Pages автоматически. Исходная сборка Sites (`npm run build`) и `.openai/hosting.json` сохранены.
 
+## Vercel
+
+При импорте этого репозитория `vercel.json` выбирает Vite, команду `npm run build:vercel` и каталог `dist-vercel`. Эта сборка публикует ту же игру в корне домена, без префикса репозитория. Настройки в файле переопределяют автоматически обнаруженный Next.js: зависимость `next` нужна исходной версии Sites, но статический деплой не создаёт `.next/routes-manifest.json`.
+
+Адрес для превью ссылок берётся из `VERCEL_PROJECT_PRODUCTION_URL` или `VERCEL_URL`. Его можно задать явно переменной `PAGES_SITE_URL`; без этих переменных локальная сборка использует `http://localhost:4173`. GitHub Pages продолжает собираться отдельно через `npm run build:pages`.
+
 ## Медиа
 
 `public/tubes.webp` — фотография CYBERSTEEL, повторно использована из существующего проекта без его изменения. Источник: https://cybersteel.com/upload/resize_cache/iblock/48e/42gr3kpeg4188hxx1gmkkv1rl6gfuov9/1230_800_1/TSA7225.jpg

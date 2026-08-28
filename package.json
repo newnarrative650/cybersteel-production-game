@@ -9,11 +9,12 @@
     "dev": "vinext dev",
     "build": "vinext build",
     "build:pages": "vite build --config vite.pages.config.ts",
+    "build:vercel": "vite build --config vite.pages.config.ts --mode vercel",
     "preview:pages": "vite preview --config vite.pages.config.ts",
     "start": "vinext start",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-pages --ignore-pattern .next"
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-pages --ignore-pattern dist-vercel --ignore-pattern .next"
   },
   "dependencies": {
     "next": "16.3.3",
